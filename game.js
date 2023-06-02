@@ -8,12 +8,12 @@ $(document).ready(function () {
   let userClickedPattern = [];
   let gameStart = false;
   let level = 0;
-    $(document).on("keydown mousedown touchstart", function () {
-      if (!gameStart) {
-        gameStart = true;
-        nextSequence();
-      }
-    });
+  $(document).on("keydown mousedown touchstart", function () {
+    if (!gameStart) {
+      gameStart = true;
+      nextSequence();
+    }
+  });
 
   $(".btn").click(function () {
     let userChosenColor = $(this).attr("id");
@@ -35,18 +35,18 @@ $(document).ready(function () {
     gamePattern.push(randomChosenColor);
     level++;
     $("#level-title").text("Level " + level);
-     setTimeout(function () {
-       $("#" + randomChosenColor).fadeTo(100, 0.3, function () {
-         $(this).fadeTo(100, 1.0);
-       });
-       playSound(randomChosenColor);
-       animatePress(randomChosenColor);
-       userClickedPattern = []; // reset the user clicked pattern array
+    setTimeout(function () {
+      $("#" + randomChosenColor).fadeTo(100, 0.3, function () {
+        $(this).fadeTo(100, 1.0);
+      });
+      playSound(randomChosenColor);
+      animatePress(randomChosenColor);
+      userClickedPattern = []; // reset the user clicked pattern array
 
-       // $("#" + randomChosenColor).fadeIn(1000).fadeOut(1000).fadeIn(1000); // Make button flicker depending on random color
-       // let audio = new Audio("sounds/" + randomChosenColor + ".mp3"); // Make audio depending on random color
-       // audio.play();
-     }, 1000);
+      // $("#" + randomChosenColor).fadeIn(1000).fadeOut(1000).fadeIn(1000); // Make button flicker depending on random color
+      // let audio = new Audio("sounds/" + randomChosenColor + ".mp3"); // Make audio depending on random color
+      // audio.play();
+    }, 1000);
   }
 
   function checkAnswer(currentLevel) {
