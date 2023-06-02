@@ -10,10 +10,12 @@ $(document).ready(function () {
   let level = 0;
 
   $(document).on("keydown mousedown touchstart", function () {
-    if (!gameStart) {
-      gameStart = true;
-      nextSequence();
-    }
+    setTimeout(function () {
+      if (!gameStart) {
+        gameStart = true;
+        nextSequence();
+      }
+    }, 2000);
   });
 
   $(".btn").click(function () {
@@ -62,9 +64,9 @@ $(document).ready(function () {
       $("body").addClass("game-over");
       setTimeout(function () {
         $("body").removeClass("game-over");
-      }, 1000);
+      }, 2000);
       // console.log("fail");
-      $("#level-title").text("Game Over, Press Any Key to Restart");
+      $("#level-title").text("Game Over, Press Here to Restart");
       startOver();
     }
   }
